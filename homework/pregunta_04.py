@@ -26,3 +26,13 @@ def pregunta_04():
      ('12', 3)]
 
     """
+
+    a = open("files/input/data.csv", "r").readlines()
+    b = {}
+    for i in a:
+        c = i.split(",")[0].split("-")[1]
+        if c in b:
+            b[c] += 1
+        else:
+            b[c] = 1
+    return sorted(b.items())

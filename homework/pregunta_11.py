@@ -16,3 +16,18 @@ def pregunta_11():
 
 
     """
+
+    a = open("files/input/data.csv", "r").readlines()
+    b = {}
+    for i in a:
+        c = i.split("\t")
+        d = c[3].split(",")
+        e = c[1]
+        for j in d:
+            f = j.split(":")[0]
+            if f in b:
+                b[f] += int(e)
+            else:
+                b[f] = int(e)
+    return dict(sorted(b.items()))
+

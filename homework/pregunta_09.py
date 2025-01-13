@@ -24,3 +24,18 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+
+    a = open("files/input/data.csv", "r").readlines()
+    b = {}
+    for i in a:
+        c = ((i.split("\t"))[-1]).split(",")
+        for j in c:
+            d = j.strip()
+            e = d.split(":")
+            f = e[0]
+            if f in b:
+                b[f] += 1
+            else:
+                b[f] = 1
+    return b
+

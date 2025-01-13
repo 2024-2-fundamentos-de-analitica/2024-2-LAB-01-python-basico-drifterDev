@@ -26,3 +26,21 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+
+    a = open("files/input/data.csv", "r").readlines()
+    b = {}
+    for i in a:
+        c = ((i.split("\t"))[-1]).split(",")
+        for j in c:
+            d = j.strip()
+            e = d.split(":")
+            f = e[0]
+            g = int(e[1])
+            if f in b:
+                if g > b[f][0]:
+                    b[f][0] = g
+                if g < b[f][1]:
+                    b[f][1] = g
+            else:
+                b[f] = [g, g]
+    return sorted([(k, v[1], v[0]) for k, v in b.items()])
